@@ -1,11 +1,20 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import Header from './components/Header';
+import Posts from './components/Posts';
 
 function App() {
   return (
-    <Fragment>
+    <Router>
       <Header />
-    </Fragment>
+
+      <div className="container">
+        <Switch>
+          <Route exact path="/" component={ Posts } />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
