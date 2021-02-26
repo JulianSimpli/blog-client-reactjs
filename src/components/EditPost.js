@@ -1,5 +1,4 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
 import swal from 'sweetalert'; 
 
 import postAxios from '../config/axios';
@@ -13,14 +12,13 @@ function EditPost(props) {
 
     const apiQuery = async () => {
         const postQuery = await postAxios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
-        console.log(postQuery);
-        postData(postQuery.data);
 
+        postData(postQuery.data);
     }
 
     useEffect(() => {
         apiQuery();
-    }, []);
+    });
     
     const updateState = e => {
         postData({
@@ -29,9 +27,29 @@ function EditPost(props) {
         });
     };
 
+    const postUpdate = e => {
+        e.preventDefault();
+
+        postAxios.put(`https://jsonplaceholder.typicode.com/posts/${ post.id }`, post)
+            .then(res => {
+                swal({
+                    title: "Post updated!",
+                    icon: "success",
+                    button: "Aww yiss!",
+                });
+                props.history.push('/');
+            })
+            .catch(err => {
+                swal({
+                    title: "Error 404!",
+                    icon: "error",
+                    button: "Aww yiss!",
+                });
+            });
+    }
+
     const postValidation = () => {
         const { title, body } = post;
-        console.log(title, body);
 
         return !title.length || !body.length;
     }
@@ -39,7 +57,9 @@ function EditPost(props) {
     return (
         <Fragment>
             <h1>Edit post</h1>
-            <form>
+            <form
+                onSubmit={ postUpdate }
+            >
                 <legend>Complete all fields</legend>
 
                 <div className="field">

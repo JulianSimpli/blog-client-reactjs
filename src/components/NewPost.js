@@ -56,7 +56,7 @@ function NewPost({ history }) {
                 </div>
 
                 <div className="field">
-                    <label>body:</label>
+                    <label>Body:</label>
                     <textarea rows="5" cols="500" type="text" placeholder="Post body" name="body" onChange={ updateState } />
                 </div>
 
