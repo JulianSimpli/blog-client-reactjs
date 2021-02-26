@@ -3,6 +3,12 @@
     --fontHeading: 'Staatliches', cursive;
 }
 
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 95%;
+}
+
 .post {
     padding: 2rem 0;
     border-bottom: 1px solid rgb(243, 243, 243);
@@ -44,4 +50,49 @@ li.post {
 .posts-list {
     list-style: none;
     padding: 0;
+}
+
+form {
+    width:95%;
+    max-width: 800px;
+    margin: 4rem auto 0 auto;
+}
+
+form legend {
+    font-size: 2.4rem;
+    color: blue;
+    font-family: var(--fontTexto);
+    font-weight: 700;
+    text-align: center;
+    display: block;
+    margin-bottom: 2rem;
+}
+
+form .field {
+    padding: .5rem 2rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+form .field label {
+    font-weight: bold;
+    font-family: var(--fontTexto);
+    flex: 0 0 100px;
+}
+
+form .field input:not([type="submit"]){
+    padding: 1.5rem;
+    flex: 1;
+    border: 1px solid #e1e1e1;
+}
+
+form .field input[readonly] {
+    background-color: #e1e1e1;
+}
+
+.send {
+    padding: .5rem 2rem;
+    display: flex;
+    justify-content: flex-end;
 }
