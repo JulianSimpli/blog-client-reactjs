@@ -1,21 +1,33 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 
+import Post from './Post';
 import postAxios from '../config/axios';
 
 const Posts = () => {
 
-    const apiRequest = async () => {
-        const posts = await postAxios.get('/posts');
+    const [posts, savePosts] = useState([]);
 
-        console.log(posts);
+    const apiQuery = async () => {
+        const postsQuery = await postAxios.get('/posts');
+
+        savePosts(postsQuery.data);
     }
 
     useEffect(() => {
-        apiRequest();
+        apiQuery();
     });
 
     return (
-        <h1>Since Posts.js</h1>
+        <Fragment>
+            <ul>
+                { posts.map(post => (
+                    <Post 
+                        key={ post.id }
+                        post={ post }
+                    />
+                )) }
+            </ul>
+        </Fragment>
     );
 }
  
