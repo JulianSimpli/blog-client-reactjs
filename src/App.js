@@ -5,6 +5,7 @@ import Header from './components/Header';
 
 import Posts from './components/Posts';
 import NewPost from './components/NewPost';
+import EditPost from './components/EditPost';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={ Posts } />
           <Route exact path="/posts/new" component={ NewPost } />
+          <Route exact path="/posts/edit/:id" component={ EditPost } />
         </Switch>
       </div>
     </Router>

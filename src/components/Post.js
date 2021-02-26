@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Post({ post }) {
-    const { title } = post;
+    const { id, title } = post;
 
     return (
         <li className="post">
@@ -12,9 +13,9 @@ function Post({ post }) {
                 <a href="/" className="btn btn-outline-secondary">
                     See details
                 </a>
-                <a href="/" className="btn btn-outline-secondary">
+                <Link to={ `/posts/edit/${id}` } className="btn btn-outline-secondary">
                     Edit post
-                </a>
+                </Link>
                 <button type="button" className="btn btn-danger">
                     Delete post
                 </button>

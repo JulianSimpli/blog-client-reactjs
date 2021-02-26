@@ -7,7 +7,7 @@ import postAxios from '../config/axios';
 function NewPost({ history }) {
     const [post, savePost] = useState({
         title: '',
-        content: ''
+        body: ''
     });
 
     const addNewPost = e => {
@@ -39,9 +39,9 @@ function NewPost({ history }) {
     };
 
     const postValidation = () => {
-        const { title, content } = post;
+        const { title, body } = post;
 
-        return !title.length || !content.length;
+        return !title.length || !body.length;
     }
 
     return (
@@ -56,8 +56,8 @@ function NewPost({ history }) {
                 </div>
 
                 <div className="field">
-                    <label>Content:</label>
-                    <input type="text" placeholder="Post Content" name="content" onChange={ updateState } />
+                    <label>body:</label>
+                    <textarea rows="5" cols="500" type="text" placeholder="Post body" name="body" onChange={ updateState } />
                 </div>
 
                 <div className="send">
