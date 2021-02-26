@@ -3,12 +3,6 @@
     --fontHeading: 'Staatliches', cursive;
 }
 
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-    width: 95%;
-}
-
 .post {
     padding: 2rem 0;
     border-bottom: 1px solid rgb(243, 243, 243);

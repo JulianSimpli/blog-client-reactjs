@@ -1,8 +1,10 @@
 import React, { Fragment, useState } from 'react';
+import { withRouter } from 'react-router-dom';
+import swal from 'sweetalert'; 
 
 import postAxios from '../config/axios';
 
-function NewPost() {
+function NewPost({ history }) {
     const [post, savePost] = useState({
         title: '',
         content: ''
@@ -13,10 +15,19 @@ function NewPost() {
 
         postAxios.post('https://jsonplaceholder.typicode.com/posts', post)
             .then(res => {
-                console.log(res);
+                swal({
+                    title: "Post added!",
+                    icon: "success",
+                    button: "Aww yiss!",
+                  });
+                  history.push('/');
             })
             .catch(err => {
-                console.log(err);
+                swal({
+                    title: "Error 404!",
+                    icon: "error",
+                    button: "Aww yiss!",
+                  });
             });
     }
 
@@ -58,4 +69,4 @@ function NewPost() {
     );
 }
  
-export default NewPost;
+export default withRouter(NewPost);

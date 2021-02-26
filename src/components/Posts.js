@@ -15,7 +15,7 @@ function Posts() {
 
     useEffect(() => {
         apiQuery();
-    });
+    }, []);
 
     return (
         <Fragment>
