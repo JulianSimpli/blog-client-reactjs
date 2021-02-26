@@ -3,7 +3,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import Post from './Post';
 import postAxios from '../config/axios';
 
-const Posts = () => {
+function Posts() {
 
     const [posts, savePosts] = useState([]);
 
@@ -19,7 +19,9 @@ const Posts = () => {
 
     return (
         <Fragment>
-            <ul>
+            <h1>Posts</h1>
+
+            <ul className="posts-list">
                 { posts.map(post => (
                     <Post 
                         key={ post.id }

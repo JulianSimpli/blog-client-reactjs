@@ -1,3 +1,8 @@
+:root {
+    --fontTexto:  'Raleway', sans-serif;
+    --fontHeading: 'Staatliches', cursive;
+}
+
 .post {
     padding: 2rem 0;
     border-bottom: 1px solid rgb(243, 243, 243);
@@ -30,9 +35,13 @@
 
 .post .title {
     font-size: 1.5rem;
-    color:  #00487C;
 }
 
 li.post {
     border-bottom: solid 1px rgba(0, 0, 255, 0.219);
+}
+
+.posts-list {
+    list-style: none;
+    padding: 0;
 }
